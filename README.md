@@ -1,2 +1,2 @@
 # geekole
-Code examples for geekole.com
+Code examples for http://geekole.com
