@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func longestPalindrome(s string) string {
 	palInit := 0
 	PalEnd := 0
@@ -40,5 +38,5 @@ func longestPalindrome(s string) string {
 }
 
 func main() {
-	fmt.Println("res: ", longestPalindrome("12345654321abaaba"))
+	//fmt.Println("res: ", longestPalindrome("12345654321abaaba"))
 }
