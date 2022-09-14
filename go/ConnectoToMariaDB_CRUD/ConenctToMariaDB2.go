@@ -26,18 +26,21 @@ func main() {
 	defer db.Close()
 
 	_, errCreate := db.Exec(`CREATE TABLE users (
-    id bigint(20) NOT NULL AUTO_INCREMENT,
-    username varchar(100) NOT NULL,
-    password varchar(100) NOT NULL,
-    email varchar(100) NOT NULL,
-    PRIMARY KEY (id)
+		id bigint(20) NOT NULL AUTO_INCREMENT,
+		username varchar(100) NOT NULL,
+		password varchar(100) NOT NULL,
+		email varchar(100) NOT NULL,
+		PRIMARY KEY (id)
     )`)
 	if errCreate != nil {
 		panic(err.Error())
 	}
 
 	for i := 1; i <= 10; i++ {
-		_, errInsert := db.Exec(`INSERT INTO users(username, password, email) VALUES (?, ?, ?)`,
+		_, errInsert := db.Exec(`INSERT INTO users(
+				username,
+				password,
+				email) VALUES (?, ?, ?)`,
 			"user"+strconv.Itoa(i),
 			strconv.Itoa(i),
 			"myemail"+strconv.Itoa(i)+"@test.com")
@@ -56,7 +59,12 @@ func main() {
 		panic(err.Error())
 	}
 
-	results, errSelect := db.Query(`SELECT id, username, password, email FROM users`)
+	results, errSelect := db.Query(`SELECT 
+		id,
+		username,
+		password,
+		email
+		FROM users`)
 	if errSelect != nil {
 		panic(err.Error())
 	}
