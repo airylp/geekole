@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 func Solution(number int) int {
 	gap := 0
 	init := false
@@ -29,6 +25,6 @@ func Solution(number int) int {
 	return gap
 }
 
-func main() {
-	fmt.Println("Solution: ", Solution(5))
-}
+//func main() {
+//	fmt.Println("Solution: ", Solution(5))
+//}
