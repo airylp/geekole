@@ -18,6 +18,7 @@ type User struct {
 }
 
 func main() {
+
 	db, err := sql.Open("mysql", "user01:password01@tcp(localhost:3306)/mydatabase?parseTime=true")
 
 	if err != nil {
@@ -40,10 +41,7 @@ func main() {
 		_, errInsert := db.Exec(`INSERT INTO users(
 				username,
 				password,
-				email) VALUES (?, ?, ?)`,
-			"user"+strconv.Itoa(i),
-			strconv.Itoa(i),
-			"myemail"+strconv.Itoa(i)+"@test.com")
+				email) VALUES (?, ?, ?)`, "user"+strconv.Itoa(i), strconv.Itoa(i), "myemail"+strconv.Itoa(i)+"@test.com")
 		if errInsert != nil {
 			panic(err.Error())
 		}
